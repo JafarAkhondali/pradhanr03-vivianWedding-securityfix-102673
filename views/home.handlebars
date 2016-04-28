@@ -1,0 +1,571 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" style="width:100%">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Vivian Daniel</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                {{#if user}}
+                <li>
+                    <a href="/gallery-viv-dan-wedding">Gallery</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#portfolio">Travel</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">Vivs & Dan</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#team">Team</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#wedding">Wedding Day</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#registry">Registry</a>
+                </li>
+                <li>
+                    <a id="logout">LogOut</a>
+                </li>
+                <li>
+                  <form id="logout-form" action="/sessions" method="POST">
+                      <input type="hidden" name="_method" value="DELETE">
+                  </form>
+                </li>
+                {{else}}
+                <li>
+                    <a data-toggle="modal" data-target="#login-modal">Login</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in"></div>
+            <div class="intro-heading"></div>
+            <a href="#services" class="btn btn-circle page-scroll">
+                <div style="font-size:1.2rem;">RSVP</div><i class="fa fa-angle-double-down animated"></i>
+            </a>
+        </div>
+    </div>
+</header>
+{{#if user}}
+<!-- Services Section -->
+<section id="services">
+  <div class="container id="rsvp-page">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2 class="section-heading">RSVP</h2>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+              <div name="sentMessage" id="rsvpForm" novalidate>
+                <div class="container-fluid">
+                  <div class="row form-group">
+                      <h5>Name</h5>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Your First Name *" id="name" name="first_name"required data-validation-required-message="Please enter your first name.">
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Your Last Name *" id="name" name="last_name" required data-validation-required-message="Please enter your last name.">
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- <div class="row"> -->
+                  <div class="row form-group">
+                    <h5>RSVP*</h5>
+                    <div style="display:flex;flex-direction:column !important;">
+                      <label class="radio-inline"><input type="radio" name="rsvp" value="true">Attending</label>
+                      <label class="radio-inline" style="margin-left:0 !important;"><input type="radio" name="rsvp" value="false">Sending Regrets</label>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <h5>Food Choices For You</h5>
+                    <label class="radio-inline"><input type="radio" name="rsvp_food_choice" value="beef">Beef</label>
+                    <label class="radio-inline"><input type="radio" name="rsvp_food_choice" value="fish">Fish</label>
+                    <label class="radio-inline"><input type="radio" name="rsvp_food_choice" value="veg">Vegetarian</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                          <h5>Guest Name</h5>
+                          <input type="guest" class="form-control" name="guest_name" placeholder="Guest Name *" id="guest_name" required data-validation-required-message="Please enter the guest's name">
+                          <p class="help-block text-danger"></p>
+                      </div>
+                      <div class="row form-group">
+                        <h5>Food Choices for Guest</h5>
+                        <label class="radio-inline"><input type="radio" name="guest_food_choice" value="beef">Beef</label>
+                        <label class="radio-inline"><input type="radio" name="guest_food_choice" value="fish">Fish</label>
+                        <label class="radio-inline"><input type="radio" name="guest_food_choice" value="veg">Vegetarian</label>
+                      </div>
+                      <div class="form-group">
+                          <h5>Kids Names</h5>
+                          <input type="kids" class="form-control" name="kid_names" placeholder="Enter Kids Names *" id="guest_name" required data-validation-required-message="Please enter the kid's name">
+                          <p class="help-block text-danger"></p>
+                      </div>
+                      <div class="form-group">
+                        <h5>Food Choices for Kids</h5>
+                        <div style="display:flex;flex-direction:column !important;">
+                          <div class="row form-group">
+                            <div class="col-md-1">
+                              <label class="checkbox-inline"><input type="checkbox" name="kids_food_choices_beef" value="beef">Beef</label>
+                            </div>
+                            <div class="col-md-11">
+                              <select class="form-control" name="kid_food_beef_quantity" id="sel1">
+                               <option placeholder="Select" value="null">Select</option>
+                               <option value="1">1</option>
+                               <option value="2">2</option>
+                               <option value="3">3</option>
+                               <option value="4">4</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col-md-1">
+                              <label class="checkbox-inline"><input type="checkbox" name="kids_food_choices_fish" value="fish">Fish</label>
+                            </div>
+                            <div class="col-md-11">
+                              <select class="form-control" name="kid_food_fish_quantity" id="sel1">
+                                <option placeholder="Select" value="null">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col-md-1">
+                              <label class="checkbox-inline"><input type="checkbox" name="kids_food_choices_veg" value="veg">Veg</label>
+                            </div>
+                            <div class="col-md-11">
+                              <select class="form-control" name="kid_food_veg_quantity" id="sel1">
+                                <option placeholder="Select" value="null">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                          <input type="tel" class="form-control" name="phone" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                          <p class="help-block text-danger"></p>
+                      </div>
+                      <div class="form-group">
+                          <input type="tel" class="form-control" name="address" placeholder="Enter your full address *" id="address" required data-validation-required-message="Please enter your full address.">
+                          <p class="help-block text-danger"></p>
+                      </div>
+                      <div class="form-group">
+                          <textarea class="form-control" name="message" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                          <p class="help-block text-danger"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-lg-12 text-center">
+                      <div id="success"></div>
+                      <button type="submit" id="rsvp-submit" class="btn btn-xl">Submit</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<template id="rsvp-thankyou-template">
+  <div class="row">
+    <div class="col-lg-12 text-center thanks">
+      <h1> Thankyou for the RSVP </h1>
+    </div>
+  </div>
+</template>
+
+<!-- Portfolio Grid Section -->
+<section id="portfolio" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Travel/ Accomodations</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/location.png" class="img-responsive" alt="" style="width:100%;">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Travel</h4>
+                    <p class="text-muted">Location & Direction</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/stay.png" class="img-responsive" alt="" style="width:100%;">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Where to Stay</h4>
+                    <p class="text-muted">Hotels</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/attraction.png" class="img-responsive" alt="" style="width:100%;">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>What to Do</h4>
+                    <p class="text-muted">Attractions in SanFrancisco</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Vivian and Daniel <3 <3</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2009-2011</h4>
+                                <h4 class="subheading">Our Humble Beginnings</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>March 2011</h4>
+                                <h4 class="subheading">An Agency is Born</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>December 2012</h4>
+                                <h4 class="subheading">Transition to Full Service</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>July 2014</h4>
+                                <h4 class="subheading">Phase Two Expansion</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>Be Part
+                                <br>Of Our
+                                <br>Story!</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Our Amazing Wedding Team</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="team-member-home team-member">
+                  <a href="/bridesmaids">
+                    <img src="img/team/bridesmaid.png" class="img-responsive img-circle" alt="">
+                    <h4>BridesMaid</h4></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member-home team-member">
+                  <a href="/flowergirls">
+                    <img src="img/team/flower.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Flower Girls</h4></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member-home team-member">
+                  <a href="/groomsmen">
+                    <img src="img/team/groom.ico" class="img-responsive img-circle" alt="">
+                    <h4>GroomsMen</h4></a>
+                </div>
+            </div
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wedding Day Section -->
+<section id="wedding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <div class="sqs-block-content"><h2 class="text-align-center">Ceremony and Reception</h2><h2 class="text-align-center">4:30pm&nbsp;</h2><p class="text-align-center"><strong>Vancouver Club</strong></p><p class="text-align-center">915 W Hastings St, Vancouver, BC V6C 1C6, Canada</p><p class="text-align-center">&nbsp; Note that Vancouver Club parking closes at 11:30pm but parking Available<em>&nbsp;</em>24hrs at Terminal City Club, one lot over at 837 West Hastings</p><p class="text-align-center">Attire: Black Tie Optional&nbsp;</p></div>
+              <a href="#portfolio" style="color:purple;">Check Out the Wedding Location & Direction</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Registry Section -->
+<section id="registry">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Registry</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Portfolio Modals -->
+<!-- Use the modals below to showcase details about your portfolio projects! -->
+
+<!-- Portfolio Modal 1 -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <!-- Map -->
+                        <section id="contact" class="map" style="padding:0 !important;">
+                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+                            <br />
+                            <small>
+                                <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+                            </small>
+                            </iframe>
+                        </section>
+                        <div>
+                          <div class="sqs-block-content"><h1 class="text-align-center">Directions</h1><p class="text-align-center">Fly into YVR Airport</p><p class="text-align-center">Recommended flight options from New York:</p><p class="text-align-center">1.&nbsp;<span>Cathay Pacific JFK-YVR nonstop 9:55pm-12:45am</span></p><p class="text-align-center">2.&nbsp;<span>United/Air Canada EWR-YVR 6:10pm- 9:15pm</span></p><p class="text-align-center">3. Delta JFK-YVR nonstop 5:59pm-9:10pm</p><p class="text-align-center">&nbsp;</p></div>
+                          <div class="sqs-block-content"><h3 class="text-align-center">Driving</h3><p class="text-align-center">Vancouver's Downtown is about a 30 minute&nbsp;drive from YVR. Cab ride&nbsp;$35 flat fare&nbsp;</p><p class="text-align-center">Note that airport rental car location hours are 5:30am to 12:30am &nbsp;</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 2 -->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+              <div class="rl">
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><h3 class="text-align-center">Fairmont Pacific Rim</h3><p class="text-align-center">1038 Canada Place Vancouver, BC&nbsp;</p><p class="text-align-center">604-695-5300</p><p class="text-align-center">Fairmont Pacific Rim is Vancouver's premier luxury hotel&nbsp;located 3 blocks away from the Vancouver Club and is the newest of the chain, built in 2010 for the Winter Olympics. The hotel offers five- star amenities and stylish rooms that integrate naturally inspired materials and state of the art technology. Please use the link below to reserve.</p><p class="text-align-center">Deluxe Harborview Room&nbsp;starting CAD$339/night</p><p class="text-align-center">Stanely Park Suites starting CAD$469/night&nbsp;</p></div>
+      </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 3 -->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <div class="sqs-block-content">
+                        <h2 class="text-align-center" id="yui_3_17_2_1_1413162937754_10443">Vancouver, British Columbia</h2><p class="text-align-center" id="yui_3_17_2_1_1413162937754_10444">Consistently named on of the top five worldwide cities for livability and quality life, Vancouver has something for everyone. Known for its beautiful scenery and amazing food, we both hope you will have time to enjoy some of the many attractions.</p><p class="text-align-center" id="yui_3_17_2_1_1413162937754_10445"><br></p>
+                        <p class="text-align-center" id="yui_3_17_2_1_1413162937754_10446"><br></p></div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 4 -->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/golden-preview.png" alt="">
+                        <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 5 -->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/escape-preview.png" alt="">
+                        <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 6 -->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/dreams-preview.png" alt="">
+                        <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

@@ -1,0 +1,70 @@
+<header>
+    <nav class="nav">
+        <div id='button'>
+            <form action="/about">
+                <input id="but" type="submit" value="About">
+            </form>
+        </div>
+        <!--  <a href="/categories">Category</a> -->
+        <div id='button'>
+            <form action="/categories">
+                <input id="but" type="submit" value="Category">
+            </form>
+        </div>
+        {{#if user}}
+        <div id='button'>
+            <form action="/contribute/{{user}}">
+                <input id="but" type="submit" value="Contribute">
+            </form>
+        </div>
+        {{else}}
+        <div id='button'>
+            <form action="/contribute">
+                <input id="but" type="submit" value="Contribute">
+            </form>
+        </div>
+        {{/if}}
+        <div id='button'>
+            <input id="but" class="feature" type="button" value="Featured" />
+        </div>
+        <div id='button'>
+            <input id="but" class="random" type="button" value="Random" />
+        </div>
+    </nav>
+</header>
+<div class='sign'>
+    {{#if user}}
+    <p style="margin-right: 180px;"> Hello {{name}}</p>
+    <div class='logout'>
+        <form action="/sessions" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Log Out">
+        </form>
+    </div>
+    {{else}}
+    <a href="/signup">Sign Up</a>
+    <a href="/login">Log In</a> {{/if}}
+    <!-- <a href="/signup">Sign Up</a>
+                <a href="/login">Log In</a>   -->
+</div>
+<h1 style="text-align: center">Article</h1>
+<div class='catt'>
+    <h2>{{articles.articles.article_title}}</h2>
+    <h4>Author: {{articles.articles.name}}</h4>
+    <br>
+    <p>{{articles.articles.article_desc}}</p>
+    <br>
+    <br>
+    <br>
+    <p>Date last modified: {{articles.articles.date}}</p>
+    <div id='link'>
+        <a href="/article/edit/{{articles.articles.id}}" style="text-align:left;">Edit this Article</a>
+    </div>
+    <div id='link'>
+        <a href="/article/contact/{{articles.articles.author_id}}" style="text-align:right;">Contact: {{articles.articles.name}}</a>
+    </div>
+    <br>
+    <br>
+</div>
+<div id='globe'>
+</div>
