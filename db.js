@@ -1,13 +1,13 @@
 var pg = require('pg');
-var dbUrl = {
- user: 'postgres',
- password: 'test',
- database: 'vivs',
- host: 'localhost',
- port: 5432
-};
+// var dbUrl = {
+//  user: 'postgres',
+//  password: 'test',
+//  database: 'vivs',
+//  host: 'localhost',
+//  port: 5432
+// };
 
-// var dbUrl = process.env.DATABASE_URL; //need this for heroku
+var dbUrl = process.env.DATABASE_URL; //need this for heroku
 
 module.exports = {
     end: function() {
