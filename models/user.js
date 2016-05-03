@@ -11,9 +11,17 @@ module.exports.User = {
       callback(data);
     });
   },
+  allRsvp : function (callback) {
+    db.all('rsvps', function (rsvps) {
+      console.log(rsvps);
+      var data={
+        rsvps: rsvps
+      }
+      callback(data);
+    });
+  },
   create : function(obj, callback){
     db.create('users', obj, function (data) {
-      debugger;
       callback( data );
     });
   },

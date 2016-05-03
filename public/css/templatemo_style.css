@@ -403,6 +403,7 @@ h6 {
 .bx-wrapper img {
   opacity: 0.8;
   filter: alpha(opacity=80);
+  height: 530px;
 }
 
 @media (max-width: 767px) {
@@ -454,6 +455,8 @@ h6 {
 #bx-pager a img {
   outline: 0;
   border: 0;
+  width: 170px;
+  height: 80px;
 }
 #bx-pager a.active {
   opacity: 1;

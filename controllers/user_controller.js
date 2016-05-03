@@ -64,6 +64,15 @@ module.exports.controller = function(app) {
 		res.render('login');
 	});
 
+	app.get('/rsvp-vivian', function (req, res) {
+		User
+	    .allRsvp(function(data) {
+	    	console.log(data);
+	    	res.json(data);
+	    });
+
+	});
+
 
 	app.post('/users', function(req, res) {
     var userName = req.body.name;
