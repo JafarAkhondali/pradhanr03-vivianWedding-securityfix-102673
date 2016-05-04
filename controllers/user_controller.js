@@ -165,12 +165,9 @@ module.exports.controller = function(app) {
 	});
 
 	app.get('/sessions', function (req, res) {
-    debugger;
-		User
-	    .findUser( req.session.currentUser, function(user) {
-	    	console.log(user);
-	    	res.render('userPage', user);
-	    });
+
+	    	res.json(req.session.currentUser);
+
 	});
 
 

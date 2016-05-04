@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Vivian Daniel</a>
+            <a class="navbar-brand page-scroll" href="#page-top">Vivian & Daniel</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,6 +18,11 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
+                {{#if id}}
+                <li>
+                    <a href="">Table</a>
+                </li>
+                {{/if}}
                 {{#if user}}
                 <li>
                     <a href="/gallery-viv-dan-wedding">Gallery</a>
@@ -83,7 +88,7 @@
               <div name="sentMessage" id="rsvpForm" novalidate>
                 <div class="container-fluid">
                   <div class="row form-group">
-                      <h5>Name</h5>
+                      <h3>Name</h3>
                       <div class="col-md-6">
                           <div class="form-group">
                               <input type="text" class="form-control" placeholder="Your First Name *" id="name" name="first_name"required data-validation-required-message="Please enter your first name.">
@@ -99,14 +104,14 @@
                   </div>
                   <!-- <div class="row"> -->
                   <div class="row form-group">
-                    <h5>RSVP*</h5>
+                    <h3>Rsvp*</h3>
                     <div style="display:flex;flex-direction:column !important;">
                       <label class="radio-inline"><input type="radio" name="rsvp" value="true">Attending</label>
                       <label class="radio-inline" style="margin-left:0 !important;"><input type="radio" name="rsvp" value="false">Sending Regrets</label>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <h5>Food Choices For You</h5>
+                    <h3>Food Choices For You</h3>
                     <label class="radio-inline"><input type="radio" name="rsvp_food_choice" value="beef">Beef</label>
                     <label class="radio-inline"><input type="radio" name="rsvp_food_choice" value="fish">Fish</label>
                     <label class="radio-inline"><input type="radio" name="rsvp_food_choice" value="veg">Vegetarian</label>
@@ -114,23 +119,23 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                          <h5>Guest Name</h5>
+                          <h3>Guest Name</h3>
                           <input type="guest" class="form-control" name="guest_name" placeholder="Guest Name *" id="guest_name" required data-validation-required-message="Please enter the guest's name">
                           <p class="help-block text-danger"></p>
                       </div>
                       <div class="row form-group">
-                        <h5>Food Choices for Guest</h5>
+                        <h3>Food Choices for Guest</h3>
                         <label class="radio-inline"><input type="radio" name="guest_food_choice" value="beef">Beef</label>
                         <label class="radio-inline"><input type="radio" name="guest_food_choice" value="fish">Fish</label>
                         <label class="radio-inline"><input type="radio" name="guest_food_choice" value="veg">Vegetarian</label>
                       </div>
                       <div class="form-group">
-                          <h5>Kids Names</h5>
+                          <h3>Kids Names</h3>
                           <input type="kids" class="form-control" name="kid_names" placeholder="Enter Kids Names *" id="guest_name" required data-validation-required-message="Please enter the kid's name">
                           <p class="help-block text-danger"></p>
                       </div>
                       <div class="form-group">
-                        <h5>Food Choices for Kids</h5>
+                        <h3>Food Choices for Kids</h3>
                         <div style="display:flex;flex-direction:column !important;">
                           <div class="row form-group">
                             <div class="col-md-1">
@@ -353,37 +358,63 @@
                 <div class="team-member-home team-member">
                   <a href="/bridesmaids">
                     <img src="img/team/bridesmaid.png" class="img-responsive img-circle" alt="">
-                    <h4>BridesMaid</h4></a>
+                    <h3>BridesMaids</h3></a>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member-home team-member">
                   <a href="/flowergirls">
                     <img src="img/team/flower.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Flower Girls</h4></a>
+                    <h3>Flower Girls</h3></a>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member-home team-member">
                   <a href="/groomsmen">
                     <img src="img/team/groom.ico" class="img-responsive img-circle" alt="">
-                    <h4>GroomsMen</h4></a>
+                    <h3>GroomsMen</h3></a>
                 </div>
             </div
         </div>
     </div>
 </section>
-
 <!-- Wedding Day Section -->
 <section id="wedding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-              <div class="sqs-block-content"><h2 class="text-align-center">Ceremony and Reception</h2><h2 class="text-align-center">5:30pm&nbsp;</h2><p class="text-align-center"><strong><a target="_blank" href="http://www.grandislandmansion.com">Grand Island Mansion</a></strong></p><p class="text-align-center">13415 Grand Island Road, Walnut Grove, CA 95690</p><p class="text-align-center">&nbsp; There will be free parking available in the back of the mansion</p><p class="text-align-center">Attire: Black Tie Optional&nbsp;</p></div>
-              <a href="#portfolio" style="color:purple;">Check Out the Wedding Location & Direction</a>
-            </div>
-        </div>
+  <h1 class="text-align-centered" style="margin-top:-5rem;text-align:center;color:#fed136;">Our Wedding Day</h1>
+  <div id="myCarousel" style="margin-top:-1rem;" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner text-align-center" role="listbox">
+    <div class="item active">
+      <img src="img/1.png" style="height:50rem;margin-left:auto !important;margin-right:auto !important;">
     </div>
+
+    <div class="item">
+      <img src="img/2.jpg" style="height:50rem;margin-left:auto !important;margin-right:auto !important;">
+    </div>
+
+    <div class="item">
+      <img src="img/3.jpg" style="height:50rem;margin-left:auto !important;margin-right:auto !important;">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 </section>
 
 <!-- Registry Section -->
@@ -424,10 +455,10 @@
                         <!-- Project Details Go Here -->
                         <!-- Map -->
                         <section id="contact" class="map" style="padding:0 !important;">
-                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAPW1SJNJHHya_uyvGRK09cHsVI5B09jYU&q=13415+Grand+Island+Road,Walnut+Grove+CA"></iframe>
                             <br />
                             <small>
-                                <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+                                <a href="https://www.google.com/maps/embed/v1/place?key=AIzaSyAPW1SJNJHHya_uyvGRK09cHsVI5B09jYU&q=13415+Grand+Island+Road,Walnut+Grove+CA"></a>
                             </small>
                             </iframe>
                         </section>

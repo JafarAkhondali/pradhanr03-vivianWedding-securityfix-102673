@@ -1,13 +1,13 @@
 var pg = require('pg');
-// var dbUrl = {
-//  user: 'postgres',
-//  password: 'test',
-//  database: 'vivs',
-//  host: 'localhost',
-//  port: 5432
-// };
+var dbUrl = {
+ user: 'postgres',
+ password: 'test',
+ database: 'vivs',
+ host: 'localhost',
+ port: 5432
+};
 
-var dbUrl = process.env.DATABASE_URL; //need this for heroku
+// var dbUrl = process.env.DATABASE_URL; //need this for heroku
 
 module.exports = {
     end: function() {
@@ -106,30 +106,6 @@ module.exports = {
     findRelations: function(table1, column, id, cb) {
         pg.connect(dbUrl, function(err, client, done) {
             client.query('SELECT * FROM ' + table1 + ' WHERE ' + table1 + '.' + column + ' = ' + id, function(err, result) {
-                done();
-                if (err) {
-                    console.error("Stupid relationships", err)
-                }
-                cb(result.rows);
-            });
-        });
-        this.end();
-    },
-    authorOfArticle: function(table1, table2, column1, column2, id, cb) {
-        pg.connect(dbUrl, function(err, client, done) {
-            client.query('SELECT * FROM ' + table1 + ' LEFT JOIN ' + table2 + ' ON ' + table1 + '.' + column1 + ' = ' + table2 + '.' + column2 + ' WHERE ' + table1 + '.' + column2 + ' = ' + id, function(err, result) {
-                done();
-                if (err) {
-                    console.error("Stupid relationships", err)
-                }
-                cb(result.rows);
-            });
-        });
-        this.end();
-    },
-    authorIdAndArticle: function(table1, table2, column1, column2, id, cb) {
-        pg.connect(dbUrl, function(err, client, done) {
-            client.query('SELECT * FROM ' + table1 + ' LEFT JOIN ' + table2 + ' ON ' + table1 + '.' + column1 + ' = ' + table2 + '.' + column2 + ' WHERE ' + table1 + '.' + column1 + ' = ' + id, function(err, result) {
                 done();
                 if (err) {
                     console.error("Stupid relationships", err)

@@ -5,11 +5,8 @@ Bootstrap Version
 Build: 1.0
 http://www.andreagalanti.it
 */
-@import url(https://fonts.googleapis.com/css?family=Calligraffitti);
 
-h1, h2, h3, h4 {
-  font-family: 'Calligraffitti', cursive;
-}
+
 
 @font-face {
   font-family: 'Lato';

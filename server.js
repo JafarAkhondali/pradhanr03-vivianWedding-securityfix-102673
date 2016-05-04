@@ -70,13 +70,20 @@ app.get('/', function(req, res) {
     var user = req.session.currentUser;
     var name = req.session.name;
     var id = req.session.id;
+    var vivId;
+
+    if (id === 1) {
+      vivId = 1;
+    }
 
     console.log(">>>>>>>>>>>");
     console.log(data);
     var data = {
         user: user,
-        name: name
+        name: name,
+        id: vivId
     }
+    console.log(data);
     res.render('home', data);
 
 });
