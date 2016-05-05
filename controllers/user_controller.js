@@ -128,7 +128,6 @@ module.exports.controller = function(app) {
 	});
 
 	app.post('/sessions', function(req, res) {
-    debugger;
 	  var email = req.body.email;
 	  var password = req.body.password;
 	  console.log(email);
@@ -151,10 +150,9 @@ module.exports.controller = function(app) {
 	            // res.redirect('userPage', user);
 
 	          } else {
-	            res.status(400);
 	            res.send({
 	              err: 400,
-	              msg: 'Incorrect password'
+	              msg: 'Incorrect password, please retunr to the site and register your account with the wedding invitation vip code'
 	            });
 	          }
 	        });
