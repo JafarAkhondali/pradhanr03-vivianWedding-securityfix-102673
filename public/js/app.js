@@ -1,4 +1,9 @@
+
 $(document).ready(function() {
+
+         var austDay = new Date();
+         austDay = new Date(austDay.getFullYear() + 1, 1 - 6, 20);
+         $('#CountDown').countdown({ until: austDay });
 
     $("#logout").on("click", function() {
         console.log('logout clicked');

@@ -13,31 +13,9 @@ module.exports.controller = function(app) {
 	app.get('/users', function (req, res) {
 		User.all( function(data) {
 			// res.render('articleIndex', data);
-			res.send('hello');
+			res.json(data);
 		});
 	});
-
-	app.get('/article/contact/:id', function (req, res) {
-		Author.find(req.params.id, function(author) {
-			// res.render('articleIndex', data);
-			var user = req.session.currentUser;
-		      var name = req.session.name;
-		      var id = req.session.id;
-
-		      console.log(">>>>>>>>>>>");
-
-
-		      var data ={
-		              user: user,
-		              name: name,
-		              author: author
-         		}
-
-			console.log(data);
-			res.render('sendEmail', data);
-		});
-	});
-
 
 	app.get('/gallery-viv-dan-wedding', function (req, res) {
 		res.render('gallery');
@@ -217,44 +195,6 @@ module.exports.controller = function(app) {
 			res.status(403);
 			 res.redirect('/login');
 		}
-	});
-
-
-	app.post('/posts', function(req, res) {
-
-	  if (req.session.currentUser) {
-	    Author
-	      .createArticle({
-	        article_title: req.body.title,
-	        article_desc: req.body.description,
-	        author_id: req.session.currentUser,
-	        category_id: req.body.category_id
-	      }, function(newpost) {
-
-	        console.log(newpost);
-	        res.redirect('/');
-	      });
-	  } else {
-	    res.status(403);
-	     res.redirect('/login');
-	  }
-	});
-
-app.put('/article/author/:id', function(req, res) {
-	  if (req.session.currentUser) {
-	    Author
-	      .updateArticle({
-	        article_title: req.body.title,
-	        article_desc: req.body.description
-	      }, req.params.id, function(data) {
-
-	        console.log(data);
-	        res.redirect('/');
-	    });
-	  } else {
-	    res.status(403);
-	    res.redirect('/login');
-	  }
 	});
 
 
